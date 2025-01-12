@@ -9,7 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CourseService
+//public class CourseServiceTest {}
+public class CourseServiceTest
 {
     private final Map<String, Course> courses = new HashMap<>();
 
@@ -18,7 +19,7 @@ public class CourseService
     public CourseService()
     {
         Module module = new Module( "INTRO-CS", "Introduction to Computer Science",
-                                    "Introductory module for the generation technical programs" );
+                "Introductory module for the generation technical programs" );
         registerCourse( new Course( "INTRO-CS-1", "Introduction to Computer Science", 9, module ) );
         registerCourse( new Course( "INTRO-CS-2", "Introduction to Algorithms", 9, module ) );
         registerCourse( new Course( "INTRO-CS-3", "Algorithm Design and Problem Solving - Introduction ", 9, module ) );
@@ -28,7 +29,7 @@ public class CourseService
         registerCourse( new Course( "INTRO-CS-7", "Agile Software Development with SCRUM", 9, module ) );
 
         Module moduleWebFundamentals = new Module( "INTRO-WEB", "Web Development Fundamentals",
-                                                   "Introduction to fundamentals of web development" );
+                "Introduction to fundamentals of web development" );
         registerCourse( new Course( "INTRO-WEB-1", "Introduction to Web Applications", 9, moduleWebFundamentals ) );
         registerCourse( new Course( "INTRO-WEB-2", "Introduction to HTML", 9, moduleWebFundamentals ) );
         registerCourse( new Course( "INTRO-WEB-3", "Introduction to CSS", 9, moduleWebFundamentals ) );
@@ -36,7 +37,7 @@ public class CourseService
         registerCourse( new Course( "INTRO-WEB-5", "Advanced CSS", 9, moduleWebFundamentals ) );
         registerCourse( new Course( "INTRO-WEB-6", "Introduction to Bootstrap Framework", 9, moduleWebFundamentals ) );
         registerCourse(
-            new Course( "INTRO-WEB-7", "Introduction to JavaScript for Web Development", 9, moduleWebFundamentals ) );
+                new Course( "INTRO-WEB-7", "Introduction to JavaScript for Web Development", 9, moduleWebFundamentals ) );
 
     }
 
@@ -75,6 +76,7 @@ public class CourseService
         }
     }
 
+
     public void showSummary()
     {
         System.out.println( "Available Courses:" );
@@ -93,5 +95,9 @@ public class CourseService
                 System.out.println( student );
             }
         }
+    }
+
+    public Map<String, Course> getCourses() {
+        return courses;
     }
 }

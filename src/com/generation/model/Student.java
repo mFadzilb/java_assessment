@@ -24,6 +24,8 @@ public class Student
     public void enrollToCourse( Course course )
     {
         //TODO implement this method
+        courses.add(course);
+        approvedCourses.put(course.getCode(), course );
     }
 
     public void registerApprovedCourse( Course course )
@@ -34,7 +36,7 @@ public class Student
     public boolean isCourseApproved( String courseCode )
     {
         //TODO implement this method
-        return false;
+        return approvedCourses.containsKey(courseCode);
     }
 
     // CHALLENGE IMPLEMENTATION: Read README.md to find instructions on how to solve. 
@@ -47,7 +49,16 @@ public class Student
     public boolean isAttendingCourse( String courseCode )
     {
         //TODO implement this method
+        for (Course course : courses) {
+            if (approvedCourses.containsKey(course.getCode())) {
+                return true;
+            }
+        }
         return false;
+    }
+
+    public void setAverage(double average) {
+        this.average = average;
     }
 
     @Override
@@ -60,7 +71,13 @@ public class Student
     public List<Course> getApprovedCourses()
     {
         //TODO implement this method
-        return null;
+        List<Course> obtainApprovedList = new ArrayList<>();
+        for (Course course : approvedCourses.values()) {
+            if (approvedCourses.containsKey(course.getCode())) { //
+                obtainApprovedList.add(course);
+            }
+        }
+        return obtainApprovedList;
     }
 
     @Override

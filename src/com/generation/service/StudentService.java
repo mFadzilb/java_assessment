@@ -27,12 +27,23 @@ public class StudentService
     public boolean isSubscribed( String studentId )
     {
         //TODO implement this method
-        return false;
+        return students.containsKey( studentId );
     }
 
     public void showSummary()
     {
         //TODO implement
+        if (students.isEmpty())
+        {
+            System.out.println("No students are subscribed.");
+            return;
+        }
+
+        System.out.println("Student Summary:");
+        for (Student student : students.values())
+        {
+            System.out.println(student); // Assuming the Student class has a meaningful toString method.
+        }
     }
 
     public void enrollToCourse( String studentId, Course course )
